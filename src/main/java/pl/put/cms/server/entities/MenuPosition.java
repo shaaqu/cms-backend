@@ -10,7 +10,6 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@Builder
 @Table(name = "menu_positions")
 public class MenuPosition {
 

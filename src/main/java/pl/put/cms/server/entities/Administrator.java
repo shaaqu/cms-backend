@@ -9,7 +9,6 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@Builder
 @Table(name = "administrators")
 public class Administrator {
 

@@ -9,7 +9,6 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@Builder
 @Table(name = "contact_addresses")
 public class ContactAddress {
 
@@ -18,7 +17,7 @@ public class ContactAddress {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "e-mail")
+    @Column(name = "e_mail")
     private String email;
 
     @ManyToOne

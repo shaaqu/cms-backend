@@ -9,7 +9,6 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
-@Builder
 @Table(name = "menu_pictures")
 public class ManuPositionPicture {
     @Id
