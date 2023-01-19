@@ -1,6 +1,5 @@
-package pl.put.cms.server.entities;
+package pl.put.cms.server.entities.restaurant;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 

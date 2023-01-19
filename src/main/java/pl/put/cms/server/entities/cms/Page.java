@@ -1,4 +1,4 @@
-package pl.put.cms.server.entities;
+package pl.put.cms.server.entities.cms;
 
 import lombok.Getter;
 import lombok.Setter;

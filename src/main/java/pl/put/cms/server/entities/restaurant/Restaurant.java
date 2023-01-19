@@ -1,8 +1,9 @@
-package pl.put.cms.server.entities;
+package pl.put.cms.server.entities.restaurant;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import pl.put.cms.server.entities.restaurant.ContactAddress;
+import pl.put.cms.server.entities.restaurant.MenuPosition;
 
 import javax.persistence.*;
 import java.util.List;

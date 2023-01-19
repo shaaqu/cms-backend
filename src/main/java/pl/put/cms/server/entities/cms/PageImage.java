@@ -1,4 +1,4 @@
-package pl.put.cms.server.entities;
+package pl.put.cms.server.entities.cms;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -19,9 +19,9 @@ public class PageImage {
     private Page page;
 
     @Column
-    private String fileName;
+    private String image;
 
-    @Column(unique = true)
+    @Column
     private String identity;
 
     @Column

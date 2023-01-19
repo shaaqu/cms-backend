@@ -1,4 +1,4 @@
-package pl.put.cms.server.entities;
+package pl.put.cms.server.entities.cms;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -19,7 +19,7 @@ public class PageText {
     @Column
     private String content;
 
-    @Column(unique = true)
+    @Column
     private String identity;
 
     @ManyToOne
