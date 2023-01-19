@@ -37,7 +37,7 @@ public class MenuPosition {
     private Restaurant restaurant;
 
     @OneToMany(mappedBy = "menuPosition")
-    private List<ManuPositionPicture> pictures;
+    private List<MenuPositionPicture> pictures;
 
     public MenuPosition() {
     }

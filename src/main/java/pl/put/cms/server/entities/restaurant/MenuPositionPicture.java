@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Table(name = "menu_pictures")
-public class ManuPositionPicture {
+public class MenuPositionPicture {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
@@ -22,7 +22,7 @@ public class ManuPositionPicture {
     @JoinColumn(name = "menu_position_id")
     private MenuPosition menuPosition;
 
-    public ManuPositionPicture() {
+    public MenuPositionPicture() {
     }
 
 }
