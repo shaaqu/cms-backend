@@ -24,15 +24,15 @@ public class MenuPositionsServiceImpl implements MenuPositionsService {
     }
 
     @Override
-    public List<MenuPositionDto> getMenuPositionsShownOnMainPage() {
-        return menuPositionsRepository.getMenuPositionsByShownOnMainPageIsTrue()
+    public List<MenuPositionDto> getMenuPositionsShownOnMainPage(int restaurantId) {
+        return menuPositionsRepository.getMenuPositionsByShownOnMainPageIsTrueAndRestaurant_Id(restaurantId)
                 .stream().map(this::mapMenuPositionToDto)
                 .collect(Collectors.toList());
     }
 
     @Override
-    public List<MenuPositionDto> getMenuPositionsByCategory(String category) {
-        return menuPositionsRepository.getMenuPositionsByCategory(category)
+    public List<MenuPositionDto> getMenuPositionsByCategory(String category, int restaurantId) {
+        return menuPositionsRepository.getMenuPositionsByCategoryAndRestaurant_Id(category, restaurantId)
                 .stream().map(this::mapMenuPositionToDto)
                 .collect(Collectors.toList());
     }

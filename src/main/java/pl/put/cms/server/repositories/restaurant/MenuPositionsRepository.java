@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface MenuPositionsRepository extends JpaRepository<MenuPosition, Integer> {
 
-    List<MenuPosition> getMenuPositionsByCategory(String category);
+    List<MenuPosition> getMenuPositionsByCategoryAndRestaurant_Id(String category, int restaurantId);
 
-    List<MenuPosition> getMenuPositionsByShownOnMainPageIsTrue();
+    List<MenuPosition> getMenuPositionsByShownOnMainPageIsTrueAndRestaurant_Id(int restaurantId);
 
 }
