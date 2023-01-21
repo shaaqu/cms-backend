@@ -28,13 +28,14 @@ public class MenuPositionsController {
         return menuPositionsService.getMenuPositionsShownOnMainPage(restaurantId);
     }
 
-    @GetMapping("/{restaurantId}/menu/category/{category}")
+    @GetMapping("/{restaurantId}/category/{category}")
     public List<MenuPositionDto> getMenuPositionsByCategory(@PathVariable int restaurantId, @PathVariable String category) {
         return menuPositionsService.getMenuPositionsByCategory(category, restaurantId);
     }
 
-    @GetMapping("/menu/picture/{menuPositionId}")
+    @GetMapping("/picture/{menuPositionId}")
     public MenuPositionPictureDto getMenuPositionsByCategory(@PathVariable int menuPositionId) {
         return menuPositionPictureService.getPicture(menuPositionId);
     }
+
 }
