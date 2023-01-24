@@ -37,6 +37,8 @@ public class Restaurant {
     @OneToMany(mappedBy = "restaurant")
     private List<ContactAddress> contactAddressList;
 
+
+
     public Restaurant() {
     }
 
