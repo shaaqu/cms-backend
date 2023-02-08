@@ -25,7 +25,7 @@ public class MenuPositionsServiceImpl implements MenuPositionsService {
 
     @Override
     public List<MenuPositionDto> getMenuPositionsShownOnMainPage(int restaurantId) {
-        return menuPositionsRepository.getMenuPositionsByShownOnMainPageIsTrueAndRestaurant_Id(restaurantId)
+        return menuPositionsRepository.getMenuPositionsByIsShownOnMainPageIsTrueAndRestaurant_Id(restaurantId)
                 .stream().map(this::mapMenuPositionToDto)
                 .collect(Collectors.toList());
     }

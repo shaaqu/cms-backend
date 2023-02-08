@@ -9,7 +9,6 @@ import java.io.Serializable;
 /**
  * A DTO for the {@link NavigationBarButton} entity
  */
-@AllArgsConstructor
-@Getter
+
 public record NavigationBarButtonDto(String content, String url) implements Serializable {
 }

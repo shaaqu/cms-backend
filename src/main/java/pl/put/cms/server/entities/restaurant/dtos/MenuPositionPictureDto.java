@@ -9,7 +9,6 @@ import java.io.Serializable;
 /**
  * A DTO for the {@link MenuPositionPicture} entity
  */
-@AllArgsConstructor
-@Getter
+
 public record MenuPositionPictureDto(String image) implements Serializable {
 }

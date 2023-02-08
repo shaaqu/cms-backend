@@ -9,8 +9,7 @@ import java.io.Serializable;
 /**
  * A DTO for the {@link Restaurant} entity
  */
-@AllArgsConstructor
-@Getter
+
 public record RestaurantDto(Integer id, String name, String cuisine, String address,
                             String openCloseHours) implements Serializable {
 }
