@@ -25,19 +25,14 @@ public class Restaurant {
     @Column(name = "cuisine")
     private String cuisine;
 
-    @Column(name = "address")
-    private String address;
-
-    @Column(name = "open_close_hours")
-    private String openCloseHours;
+    @OneToMany(mappedBy = "restaurant")
+    private List<RestaurantLocation> locations;
 
     @OneToMany(mappedBy = "restaurant")
     private List<MenuPosition> menu;
 
     @OneToMany(mappedBy = "restaurant")
     private List<ContactAddress> contactAddressList;
-
-
 
     public Restaurant() {
     }
