@@ -27,9 +27,7 @@ public class RestaurantController {
 
     @GetMapping("/info/location/{restaurantId}")
     public List<LocationDto> getRestaurantLocations(@PathVariable int restaurantId) {
-        List<LocationDto> list = new ArrayList<>();
-        list.add(new LocationDto("wypizdowie", "kurwa zawsze"));
-        return list;
+        return restaurantInfoService.getRestaurantLocations(restaurantId);
     }
 
 

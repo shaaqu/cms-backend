@@ -1,10 +1,15 @@
 package pl.put.cms.server.services.restaurant.impl;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.annotation.AccessType;
 import org.springframework.stereotype.Service;
+import pl.put.cms.server.entities.restaurant.dtos.LocationDto;
 import pl.put.cms.server.entities.restaurant.dtos.RestaurantDto;
 import pl.put.cms.server.repositories.restaurant.RestaurantRepository;
 import pl.put.cms.server.services.restaurant.RestaurantInfoService;
+
+import java.util.List;
 
 @Service
 public class RestaurantInfoServiceImpl implements RestaurantInfoService {
@@ -12,6 +17,7 @@ public class RestaurantInfoServiceImpl implements RestaurantInfoService {
     private final RestaurantRepository restaurantRepository;
     private final ModelMapper modelMapper;
 
+    @Autowired
     public RestaurantInfoServiceImpl(RestaurantRepository restaurantRepository) {
         this.restaurantRepository = restaurantRepository;
         this.modelMapper = new ModelMapper();
@@ -21,5 +27,10 @@ public class RestaurantInfoServiceImpl implements RestaurantInfoService {
     @Override
     public RestaurantDto getRestaurantInfo(int id) {
         return modelMapper.map(restaurantRepository.findById(id), RestaurantDto.class);
+    }
+
+    @Override
+    public List<LocationDto> getRestaurantLocations(int restaurantId) {
+        return null;
     }
 }
