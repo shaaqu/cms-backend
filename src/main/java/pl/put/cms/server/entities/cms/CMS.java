@@ -25,4 +25,7 @@ public class CMS {
     @OneToMany(mappedBy = "cms")
     private List<NavigationBarButton> navigationBarButtons;
 
+    @OneToMany(mappedBy = "cms")
+    private List<SliderImage> sliderImages;
+
 }
