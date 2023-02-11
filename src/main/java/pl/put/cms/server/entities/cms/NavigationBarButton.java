@@ -12,8 +12,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "navigation_bar_buttons")
 public class NavigationBarButton {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Integer id;
 
