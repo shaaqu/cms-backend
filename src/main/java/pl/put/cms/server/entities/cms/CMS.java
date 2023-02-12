@@ -28,4 +28,7 @@ public class CMS {
     @OneToMany(mappedBy = "cms")
     private List<SliderImage> sliderImages;
 
+    @OneToMany(mappedBy = "cms")
+    private List<Post> posts;
+
 }
