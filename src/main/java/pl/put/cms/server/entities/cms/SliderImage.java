@@ -18,6 +18,9 @@ public class SliderImage {
     private Long id;
 
     @Column
+    private String text;
+
+    @Column
     private String image;
 
     @ManyToOne
