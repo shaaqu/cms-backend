@@ -22,8 +22,9 @@ public class CMS {
     @JoinColumn(name = "restaurant_id", referencedColumnName = "id")
     private Restaurant restaurant;
 
-    @OneToMany(mappedBy = "cms")
-    private List<NavigationBarButton> navigationBarButtons;
+    @OneToOne
+    @JoinColumn(name = "navigation_bar_id")
+    private NavigationBar navigationBar;
 
     @OneToMany(mappedBy = "cms")
     private List<SliderImage> sliderImages;

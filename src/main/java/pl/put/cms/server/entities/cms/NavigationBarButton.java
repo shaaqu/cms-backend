@@ -24,9 +24,8 @@ public class NavigationBarButton {
     @Column(name = "url", nullable = false)
     private String url;
 
-
     @ManyToOne
-    @JoinColumn(name = "cms_id")
-    private CMS cms;
+    @JoinColumn(name = "navigation_bar_id")
+    private NavigationBar navigationBar;
 
 }
