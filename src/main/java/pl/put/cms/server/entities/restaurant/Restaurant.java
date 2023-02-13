@@ -29,7 +29,7 @@ public class Restaurant {
     private List<RestaurantLocation> locations;
 
     @OneToMany(mappedBy = "restaurant")
-    private List<MenuPosition> menu;
+    private List<Category> categories;
 
     @OneToMany(mappedBy = "restaurant")
     private List<ContactAddress> contactAddressList;

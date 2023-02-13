@@ -26,15 +26,9 @@ public class MenuPosition {
     @Column(name = "price")
     private double price;
 
-    @Column(name = "category")
-    private String category;
-
-    @Column(name = "is_shown_on_main_page")
-    private boolean isShownOnMainPage;
-
     @ManyToOne
-    @JoinColumn(name = "restaurant_id")
-    private Restaurant restaurant;
+    @JoinColumn(name = "category")
+    private Category category;
 
     @OneToMany(mappedBy = "menuPosition")
     private List<MenuPositionPicture> pictures;
