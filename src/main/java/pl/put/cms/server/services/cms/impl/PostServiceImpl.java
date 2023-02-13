@@ -1,6 +1,7 @@
 package pl.put.cms.server.services.cms.impl;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
 import pl.put.cms.server.entities.cms.Post;
 import pl.put.cms.server.entities.cms.dtos.PostDto;
 import pl.put.cms.server.repositories.cms.PostRepository;
@@ -9,6 +10,7 @@ import pl.put.cms.server.services.cms.PostService;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class PostServiceImpl implements PostService {
 
     private final PostRepository postRepository;
