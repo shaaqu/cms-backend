@@ -3,6 +3,7 @@ package pl.put.cms.server.controlles.cms;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.put.cms.server.entities.cms.dtos.NavigationBarButtonDto;
+import pl.put.cms.server.entities.cms.dtos.NavigationBarDto;
 import pl.put.cms.server.entities.cms.dtos.PostDto;
 import pl.put.cms.server.services.cms.NavigationBarService;
 import pl.put.cms.server.services.cms.PostService;
@@ -24,8 +25,8 @@ public class CMSController {
     }
 
     @GetMapping("/{cmsId}/navi-bar")
-    List<NavigationBarButtonDto> getNaviBar(@PathVariable int cmsId) {
-        return navigationBarService.getNavigationBarButtons(cmsId);
+    NavigationBarDto getNaviBar(@PathVariable int cmsId) {
+        return navigationBarService.getNavigationBar(cmsId);
     }
 
     @GetMapping("/{cmsId}/posts")
