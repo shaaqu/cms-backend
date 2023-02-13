@@ -1,4 +1,4 @@
-package pl.put.cms.server.controlles.restaurant;
+package pl.put.cms.server.controlles;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,11 +21,6 @@ public class MenuPositionsController {
     public MenuPositionsController(MenuPositionsService menuPositionsService, MenuPositionPictureService menuPositionPictureService) {
         this.menuPositionsService = menuPositionsService;
         this.menuPositionPictureService = menuPositionPictureService;
-    }
-
-    @GetMapping("/{restaurantId}/main-page")
-    public List<MenuPositionDto> getMenuPositionsShownOnMainPage(@PathVariable int restaurantId){
-        return menuPositionsService.getMenuPositionsShownOnMainPage(restaurantId);
     }
 
     @GetMapping("/{restaurantId}/category/{category}")

@@ -6,8 +6,6 @@ import java.util.List;
 
 public interface MenuPositionsService {
 
-    public List<MenuPositionDto> getMenuPositionsShownOnMainPage(int restaurantId);
-
     public List<MenuPositionDto> getMenuPositionsByCategory(String category, int restaurantId);
 
 }

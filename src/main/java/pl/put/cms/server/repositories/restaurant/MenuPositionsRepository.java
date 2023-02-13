@@ -11,6 +11,4 @@ public interface MenuPositionsRepository extends JpaRepository<MenuPosition, Int
 
     List<MenuPosition> getMenuPositionsByCategoryAndRestaurant_Id(String category, int restaurantId);
 
-    List<MenuPosition> getMenuPositionsByIsShownOnMainPageIsTrueAndRestaurant_Id(int restaurantId);
-
 }
