@@ -3,9 +3,11 @@ package pl.put.cms.server.services.cms.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.stereotype.Service;
 import pl.put.cms.server.entities.cms.dtos.ReservationDto;
 import pl.put.cms.server.services.cms.EmailService;
 
+@Service
 public class EmailServiceImpl implements EmailService {
 
     private final JavaMailSender javaMailSender;
@@ -21,6 +23,7 @@ public class EmailServiceImpl implements EmailService {
         message.setTo("pawel.lukaszewicz@student.put.poznan.pl");
         message.setSubject("Reservation");
         message.setText(reservationDto.message());
+        javaMailSender.createMimeMessage();
         javaMailSender.send(message);
     }
 }

@@ -31,6 +31,7 @@ dependencies {
     implementation 'org.modelmapper:modelmapper:3.1.1'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-mail:3.0.2'
+    implementation 'org.springframework:spring-context-support:6.0.4'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
