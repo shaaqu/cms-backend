@@ -23,6 +23,9 @@ public class NavigationBar {
     @Column(name = "name")
     private String name;
 
+    @OneToOne(mappedBy = "navigationBar")
+    private CMS cms;
+
     @OneToMany(mappedBy = "navigationBar")
     private List<NavigationBarButton> navigationBarButtons;
 

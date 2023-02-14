@@ -7,6 +7,4 @@ import java.util.List;
 
 public interface NavigationBarButtonRepository extends JpaRepository<NavigationBarButton, Integer> {
 
-    List<NavigationBarButton> findAllByCms_Id(int cmsId);
-
 }
