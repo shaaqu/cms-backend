@@ -23,13 +23,13 @@ public class MenuPositionsController {
         this.menuPositionPictureService = menuPositionPictureService;
     }
 
-    @GetMapping("/{restaurantId}/category/{category}")
-    public List<MenuPositionDto> getMenuPositionsByCategory(@PathVariable int restaurantId, @PathVariable String category) {
-        return menuPositionsService.getMenuPositionsByCategory(category, restaurantId);
+    @GetMapping("/category/{categoryId}")
+    public List<MenuPositionDto> getMenuPositionsByCategory(@PathVariable int categoryId) {
+        return menuPositionsService.getMenuPositionsByCategory(categoryId);
     }
 
     @GetMapping("/picture/{menuPositionId}")
-    public MenuPositionPictureDto getMenuPositionsByCategory(@PathVariable int menuPositionId) {
+    public MenuPositionPictureDto getMenuPositionPicture(@PathVariable int menuPositionId) {
         return menuPositionPictureService.getPicture(menuPositionId);
     }
 

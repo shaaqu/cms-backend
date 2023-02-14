@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface MenuPositionsRepository extends JpaRepository<MenuPosition, Integer> {
 
-    List<MenuPosition> getMenuPositionsByCategoryAndRestaurant_Id(String category, int restaurantId);
+    List<MenuPosition> findAllByCategory_Id(int id);
 
 }

@@ -24,8 +24,8 @@ public class MenuPositionsServiceImpl implements MenuPositionsService {
     }
 
     @Override
-    public List<MenuPositionDto> getMenuPositionsByCategory(String category, int restaurantId) {
-        return menuPositionsRepository.getMenuPositionsByCategoryAndRestaurant_Id(category, restaurantId)
+    public List<MenuPositionDto> getMenuPositionsByCategory(int categoryId) {
+        return menuPositionsRepository.findAllByCategory_Id(categoryId)
                 .stream().map(this::mapMenuPositionToDto)
                 .collect(Collectors.toList());
     }
