@@ -28,7 +28,7 @@ public class MenuPositionsController {
         return menuPositionsService.getMenuPositionsByCategory(categoryId);
     }
 
-    @GetMapping("/picture/{menuPositionId}")
+    @GetMapping("/{menuPositionId}/picture")
     public MenuPositionPictureDto getMenuPositionPicture(@PathVariable int menuPositionId) {
         return menuPositionPictureService.getPicture(menuPositionId);
     }
