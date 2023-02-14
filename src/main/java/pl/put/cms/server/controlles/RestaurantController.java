@@ -1,5 +1,6 @@
 package pl.put.cms.server.controlles;
 
+import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.put.cms.server.entities.cms.dtos.ReservationDto;
@@ -35,7 +36,7 @@ public class RestaurantController {
     }
 
     @GetMapping("/reservation")
-    public String makeReservation() {
+    public String makeReservation() throws MessagingException {
         ReservationDto reservationDto = new ReservationDto(new Date(System.currentTimeMillis()), 1.5, 1, "Pawel", "mail@mail.com", "123456789", "Pliska");
         emailService.sendEmail(reservationDto);
         return "Reservation";
