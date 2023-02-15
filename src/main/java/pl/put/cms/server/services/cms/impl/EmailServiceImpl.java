@@ -1,33 +1,37 @@
 package pl.put.cms.server.services.cms.impl;
 
-import jakarta.mail.Address;
-import jakarta.mail.Message;
-import jakarta.mail.MessagingException;
-import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.stereotype.Component;
+import org.springframework.mail.javamail.MimeMailMessage;
+import org.springframework.stereotype.Service;
 import pl.put.cms.server.entities.cms.dtos.ReservationDto;
 import pl.put.cms.server.services.cms.EmailService;
 
-@Component
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
+@Service
 public class EmailServiceImpl implements EmailService {
 
-
+    @Autowired @Qualifier("emailsender")
     private JavaMailSender mailSender;
 
-    @Autowired
-    public EmailServiceImpl(JavaMailSender mailSender) {
-        this.mailSender = mailSender;
-    }
+//    @Autowired
+//    public EmailServiceImpl(JavaMailSender mailSender) {
+//        this.mailSender = mailSender;
+//    }
 
     public void sendEmail(ReservationDto reservationDto) throws MessagingException {
         MimeMessage message = mailSender.createMimeMessage();
-        message.setFrom(reservationDto.email());
-        message.setRecipients(Message.RecipientType.TO,"pawel.lukaszewicz@student.put.poznan.pl");
-        message.setSubject("Reservation");
+        message.addRecipient(Message.RecipientType.TO,new InternetAddress("pawel.lukaszewicz@student.put.poznan.pl"));
+        message.setSubject("reservation");
         message.setText(reservationDto.message());
+
         mailSender.send(message);
     }
 

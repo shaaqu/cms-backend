@@ -1,6 +1,5 @@
 package pl.put.cms.server.controlles;
 
-import jakarta.mail.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.put.cms.server.entities.cms.dtos.ReservationDto;
@@ -9,6 +8,7 @@ import pl.put.cms.server.entities.restaurant.dtos.RestaurantDto;
 import pl.put.cms.server.services.cms.EmailService;
 import pl.put.cms.server.services.restaurant.RestaurantInfoService;
 
+import javax.mail.MessagingException;
 import java.util.Date;
 import java.util.List;
 
