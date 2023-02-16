@@ -1,6 +1,8 @@
 package pl.put.cms.server.controlles;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.put.cms.server.entities.cms.dtos.ReservationDto;
 import pl.put.cms.server.entities.restaurant.dtos.LocationDto;
@@ -35,11 +37,10 @@ public class RestaurantController {
         return restaurantInfoService.getRestaurantLocations(restaurantId);
     }
 
-    @GetMapping("/reservation")
-    public String makeReservation() throws MessagingException {
-        ReservationDto reservationDto = new ReservationDto(new Date(System.currentTimeMillis()), 1.5, 1, "Pawel", "mail@mail.com", "123456789", "Pliska");
+    @PostMapping("/reservation")
+    public ResponseEntity<ReservationDto> makeReservation(@RequestBody ReservationDto reservationDto) throws MessagingException {
         emailService.sendEmail(reservationDto);
-        return "Reservation";
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
 
