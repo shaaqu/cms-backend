@@ -10,6 +10,8 @@ import java.io.Serializable;
 /**
  * A DTO for the {@link MenuPosition} entity
  */
-public record MenuPositionDto(Integer id, String name, String description, double price, String category,
-                              boolean isShownOnMainPage) implements Serializable {
-}
+public record MenuPositionDto(String name,
+                              String description,
+                              double price,
+                              String category
+    ) implements Serializable { }
