@@ -7,25 +7,25 @@ import org.springframework.web.bind.annotation.RestController;
 import pl.put.cms.server.entities.restaurant.dtos.MenuPositionDto;
 import pl.put.cms.server.entities.restaurant.dtos.MenuPositionPictureDto;
 import pl.put.cms.server.services.restaurant.MenuPositionPictureService;
-import pl.put.cms.server.services.restaurant.MenuPositionsService;
+import pl.put.cms.server.services.restaurant.MenuService;
 
 import java.util.List;
 
 @RestController("/menu")
 public class MenuPositionsController {
 
-    private final MenuPositionsService menuPositionsService;
+    private final MenuService menuService;
     private final MenuPositionPictureService menuPositionPictureService;
 
     @Autowired
-    public MenuPositionsController(MenuPositionsService menuPositionsService, MenuPositionPictureService menuPositionPictureService) {
-        this.menuPositionsService = menuPositionsService;
+    public MenuPositionsController(MenuService menuService, MenuPositionPictureService menuPositionPictureService) {
+        this.menuService = menuService;
         this.menuPositionPictureService = menuPositionPictureService;
     }
 
     @GetMapping("/category/{categoryId}")
     public List<MenuPositionDto> getMenuPositionsByCategory(@PathVariable int categoryId) {
-        return menuPositionsService.getMenuPositionsByCategory(categoryId);
+        return menuService.getMenuPositionsByCategory(categoryId);
     }
 
     @GetMapping("/{menuPositionId}/picture")
