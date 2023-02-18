@@ -1,13 +1,15 @@
 package pl.put.cms.server.entities.restaurant;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "contact_addresses")
 public class ContactAddress {
 
@@ -22,8 +24,5 @@ public class ContactAddress {
     @ManyToOne
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
-
-    public ContactAddress() {
-    }
 
 }

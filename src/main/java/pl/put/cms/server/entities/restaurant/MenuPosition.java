@@ -1,7 +1,6 @@
 package pl.put.cms.server.entities.restaurant;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -9,6 +8,9 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "menu_positions")
 public class MenuPosition {
 
@@ -32,8 +34,5 @@ public class MenuPosition {
 
     @OneToMany(mappedBy = "menuPosition")
     private List<MenuPositionPicture> pictures;
-
-    public MenuPosition() {
-    }
 
 }

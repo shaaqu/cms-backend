@@ -1,8 +1,6 @@
 package pl.put.cms.server.entities.cms;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import pl.put.cms.server.entities.restaurant.Restaurant;
 
 import javax.persistence.*;
@@ -10,6 +8,7 @@ import java.util.List;
 
 @Setter @Getter
 @NoArgsConstructor
+@Builder @AllArgsConstructor
 @Entity
 @Table(name = "cms")
 public class CMS {

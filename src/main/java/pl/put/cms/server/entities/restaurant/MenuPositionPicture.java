@@ -1,13 +1,15 @@
 package pl.put.cms.server.entities.restaurant;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "menu_pictures")
 public class MenuPositionPicture {
     @Id
@@ -21,8 +23,5 @@ public class MenuPositionPicture {
     @ManyToOne
     @JoinColumn(name = "menu_position_id")
     private MenuPosition menuPosition;
-
-    public MenuPositionPicture() {
-    }
 
 }

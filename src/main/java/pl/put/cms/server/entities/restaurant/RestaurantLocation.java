@@ -1,13 +1,13 @@
 package pl.put.cms.server.entities.restaurant;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
+@Builder
+@AllArgsConstructor
 @Getter @Setter
 public class RestaurantLocation {
     @Id

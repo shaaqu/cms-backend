@@ -1,14 +1,13 @@
 package pl.put.cms.server.entities.cms;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Setter
-@Getter
+@Setter @Getter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name = "navigation_bar_buttons")
 public class NavigationBarButton {

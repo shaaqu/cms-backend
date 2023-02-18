@@ -1,8 +1,6 @@
 package pl.put.cms.server.entities.restaurant;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,6 +9,9 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@Builder
+@AllArgsConstructor
+
 public class Category {
 
     @Id

@@ -1,14 +1,14 @@
 package pl.put.cms.server.entities.cms;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
+@Builder @AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "administrators")
 public class Administrator {
 
@@ -22,8 +22,5 @@ public class Administrator {
 
     @Column(name = "password")
     private char[] password;
-
-    public Administrator() {
-    }
 
 }

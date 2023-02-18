@@ -1,16 +1,15 @@
 package pl.put.cms.server.entities.restaurant;
 
-import lombok.Getter;
-import lombok.Setter;
-import pl.put.cms.server.entities.restaurant.ContactAddress;
-import pl.put.cms.server.entities.restaurant.MenuPosition;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
+@Getter @Setter
+@NoArgsConstructor
+@Builder
+@AllArgsConstructor
 @Table(name = "restaurants")
 public class Restaurant {
 
@@ -33,8 +32,5 @@ public class Restaurant {
 
     @OneToMany(mappedBy = "restaurant")
     private List<ContactAddress> contactAddressList;
-
-    public Restaurant() {
-    }
 
 }

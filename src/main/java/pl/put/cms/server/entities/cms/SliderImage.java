@@ -1,14 +1,14 @@
 package pl.put.cms.server.entities.cms;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@Builder
 @NoArgsConstructor
 @Table(name = "slider_images")
 public class SliderImage {
