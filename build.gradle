@@ -32,6 +32,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-mail'
     implementation 'com.sun.mail:javax.mail:1.6.2'
+    compileOnly "io.springfox:springfox-swagger2:2.9.2"
+    compileOnly "io.springfox:springfox-swagger-ui:2.9.2"
+
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'

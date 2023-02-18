@@ -24,3 +24,8 @@ spring:
           auth: true
           starttls.enable: true
 
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+
