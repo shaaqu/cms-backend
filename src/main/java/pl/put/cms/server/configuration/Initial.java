@@ -5,11 +5,15 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 import pl.put.cms.server.entities.cms.*;
+import pl.put.cms.server.entities.restaurant.Category;
+import pl.put.cms.server.entities.restaurant.MenuPosition;
 import pl.put.cms.server.entities.restaurant.Restaurant;
+import pl.put.cms.server.entities.restaurant.RestaurantLocation;
 import pl.put.cms.server.repositories.cms.*;
 import pl.put.cms.server.repositories.restaurant.*;
 
 import java.util.Arrays;
+import java.util.List;
 
 
 @Component
@@ -72,8 +76,49 @@ public class Initial {
         cmsRepository.save(cms);
         addPosts(cms);
 
+        addRestaurantInfo(restaurant);
 
+    }
 
+    private void addRestaurantInfo(Restaurant restaurant) {
+        addRestaurantLocations(restaurant);
+        addCategories(restaurant);
+    }
+
+    private void addCategories(Restaurant restaurant) {
+        List<Category> categories =
+                Arrays.asList(
+                        Category.builder().category("Pizza").restaurant(restaurant).build(),
+                        Category.builder().category("Pasta").restaurant(restaurant).build(),
+                        Category.builder().category("Drinks").restaurant(restaurant).build()
+                );
+        categoryRepository.saveAll(categories);
+        addMenuPositions(categories);
+    }
+
+    private void addMenuPositions(List<Category> categories) {
+        menuPositionsRepository.saveAll(
+                Arrays.asList(
+                        MenuPosition.builder().name("Pizza 1").description("Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia").price(15.1).category(categories.get(0)).build(),
+                        MenuPosition.builder().name("Pizza 2").description("Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia").price(15.1).category(categories.get(0)).build(),
+                        MenuPosition.builder().name("Pizza 3").description("Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia").price(15.1).category(categories.get(0)).build(),
+                        MenuPosition.builder().name("Pasta 1").description("Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia").price(15.1).category(categories.get(1)).build(),
+                        MenuPosition.builder().name("Pasta 2").description("Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia").price(15.1).category(categories.get(1)).build(),
+                        MenuPosition.builder().name("Pasta 3").description("Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia").price(15.1).category(categories.get(1)).build(),
+                        MenuPosition.builder().name("Drink 1").description("Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia").price(15.1).category(categories.get(2)).build(),
+                        MenuPosition.builder().name("Drink 2").description("Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia").price(15.1).category(categories.get(2)).build(),
+                        MenuPosition.builder().name("Drink 3").description("Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia").price(15.1).category(categories.get(2)).build()
+                )
+        );
+    }
+
+    private void addRestaurantLocations(Restaurant restaurant) {
+        restaurantLocationRepository.saveAll(
+                Arrays.asList(
+                        RestaurantLocation.builder().address("Bananowa 3, Poznan").openCloseHours("12:00 - 22:00").restaurant(restaurant).build(),
+                        RestaurantLocation.builder().address("Bananowa 10, Wroclaw").openCloseHours("13:00 - 24:00").restaurant(restaurant).build()
+                )
+        );
     }
 
     private void addPosts(CMS cms) {
