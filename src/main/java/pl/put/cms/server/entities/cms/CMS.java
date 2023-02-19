@@ -18,7 +18,11 @@ public class CMS {
     private Integer id;
 
     @OneToOne
-    @JoinColumn(name = "restaurant_id", referencedColumnName = "id")
+    @JoinColumn(name = "admin_id")
+    private Administrator administrator;
+
+    @OneToOne
+    @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
 
     @OneToOne

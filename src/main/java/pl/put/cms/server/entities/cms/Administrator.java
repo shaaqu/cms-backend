@@ -23,4 +23,7 @@ public class Administrator {
     @Column(name = "password")
     private char[] password;
 
+    @OneToOne(mappedBy = "navigationBar")
+    private CMS cms;
+
 }

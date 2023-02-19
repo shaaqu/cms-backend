@@ -18,6 +18,7 @@ public class NavigationBar {
     private Integer id;
 
     @Column(name = "logo")
+    @Lob
     private String logo;
 
     @Column(name = "name")
