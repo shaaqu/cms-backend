@@ -1,8 +1,6 @@
 package pl.put.cms.server.entities.restaurant.dtos;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import pl.put.cms.server.entities.restaurant.MenuPosition;
 
 import java.io.Serializable;
@@ -10,8 +8,13 @@ import java.io.Serializable;
 /**
  * A DTO for the {@link MenuPosition} entity
  */
-public record MenuPositionDto(String name,
-                              String description,
-                              double price,
-                              String category
-    ) implements Serializable { }
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class MenuPositionDto implements Serializable {
+    private Integer id;
+    private String name;
+    private String description;
+    private double price;
+}

@@ -1,6 +1,19 @@
 package pl.put.cms.server.entities.cms.dtos;
 
-import java.util.List;
+import lombok.*;
+import pl.put.cms.server.entities.cms.NavigationBar;
 
-public record NavigationBarDto(String logo, String name, List<NavigationBarButtonDto> buttons) {
+import java.io.Serializable;
+
+/**
+ * A DTO for the {@link NavigationBar} entity
+ */
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class NavigationBarDto implements Serializable {
+    private Integer id;
+    private String logo;
+    private String name;
 }

@@ -1,7 +1,6 @@
 package pl.put.cms.server.entities.cms.dtos;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.*;
 import pl.put.cms.server.entities.cms.NavigationBarButton;
 
 import java.io.Serializable;
@@ -9,6 +8,12 @@ import java.io.Serializable;
 /**
  * A DTO for the {@link NavigationBarButton} entity
  */
-
-public record NavigationBarButtonDto(String content, String url) implements Serializable {
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class NavigationBarButtonDto implements Serializable {
+    private Integer id;
+    private String content;
+    private String url;
 }

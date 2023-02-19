@@ -1,5 +1,6 @@
 package pl.put.cms.server.controlles;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,8 +15,10 @@ import javax.mail.MessagingException;
 import java.util.Date;
 import java.util.List;
 
+@Slf4j
 @CrossOrigin
-@RestController @RequestMapping("/restaurant")
+@RestController
+@RequestMapping("/restaurant")
 public class RestaurantController {
 
     private final RestaurantInfoService restaurantInfoService;

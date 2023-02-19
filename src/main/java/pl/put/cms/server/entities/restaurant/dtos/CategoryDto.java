@@ -1,12 +1,18 @@
 package pl.put.cms.server.entities.restaurant.dtos;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.*;
+import pl.put.cms.server.entities.restaurant.Category;
 
 import java.io.Serializable;
 
 /**
- * A DTO for the {@link pl.put.cms.server.entities.restaurant.Category} entity
+ * A DTO for the {@link Category} entity
  */
-public record CategoryDto(Integer id, String category) implements Serializable {
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class CategoryDto implements Serializable {
+    private Integer id;
+    private String category;
 }
