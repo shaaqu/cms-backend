@@ -5,9 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.put.cms.server.entities.cms.dtos.ReservationDto;
-import pl.put.cms.server.entities.restaurant.dtos.LocationDto;
+import pl.put.cms.server.entities.restaurant.dtos.RestaurantLocationDto;
 import pl.put.cms.server.entities.restaurant.dtos.RestaurantDto;
+import pl.put.cms.server.entities.restaurant.dtos.RestaurantLocationDto;
 import pl.put.cms.server.services.cms.EmailService;
 import pl.put.cms.server.services.restaurant.RestaurantInfoService;
 
@@ -36,15 +36,15 @@ public class RestaurantController {
     }
 
     @GetMapping("/info/location/{restaurantId}")
-    public List<LocationDto> getRestaurantLocations(@PathVariable int restaurantId) {
+    public List<RestaurantLocationDto> getRestaurantLocations(@PathVariable int restaurantId) {
         return restaurantInfoService.getRestaurantLocations(restaurantId);
     }
 
-    @PostMapping("/reservation")
-    public ResponseEntity<ReservationDto> makeReservation(@RequestBody ReservationDto reservationDto) throws MessagingException {
-        emailService.sendEmail(reservationDto);
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
-    }
+//    @PostMapping("/reservation")
+//    public ResponseEntity<ReservationDto> makeReservation(@RequestBody ReservationDto reservationDto) throws MessagingException {
+//        emailService.sendEmail(reservationDto);
+//        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+//    }
 
 
 }
