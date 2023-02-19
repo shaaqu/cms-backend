@@ -20,7 +20,7 @@ public class SliderImage {
     @Column
     private String text;
 
-    @Column
+    @Column @Lob
     private String image;
 
     @ManyToOne

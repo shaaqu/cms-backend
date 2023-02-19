@@ -20,9 +20,11 @@ public class Post {
     private String title;
 
     @Column(name = "text")
+    @Lob
     private String text;
 
     @Column(name = "image")
+    @Lob
     private String img;
 
     @ManyToOne
