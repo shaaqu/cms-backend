@@ -13,7 +13,7 @@ import java.util.List;
 @Table(name = "cms")
 public class CMS {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
     private Integer id;
 
