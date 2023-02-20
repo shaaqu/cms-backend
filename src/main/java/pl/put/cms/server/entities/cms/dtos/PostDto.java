@@ -1,6 +1,9 @@
 package pl.put.cms.server.entities.cms.dtos;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import pl.put.cms.server.entities.cms.Post;
 
 import java.io.Serializable;

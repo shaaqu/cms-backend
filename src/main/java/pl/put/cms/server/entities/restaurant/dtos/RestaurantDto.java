@@ -1,6 +1,9 @@
 package pl.put.cms.server.entities.restaurant.dtos;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import pl.put.cms.server.entities.restaurant.Restaurant;
 
 import java.io.Serializable;
