@@ -20,7 +20,7 @@ public class Administrator {
     @Column(name = "login")
     private String login;
 
-    @Column(name = "password")
+    @Column(name = "password", length = 72)
     private char[] password;
 
     @OneToOne(mappedBy = "navigationBar")

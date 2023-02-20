@@ -15,7 +15,7 @@ public class SliderImage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
 
     @Column
     private String text;
