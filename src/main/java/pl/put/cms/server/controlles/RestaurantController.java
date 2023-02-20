@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pl.put.cms.server.entities.restaurant.dtos.ReservationDto;
 import pl.put.cms.server.entities.restaurant.dtos.RestaurantLocationDto;
 import pl.put.cms.server.entities.restaurant.dtos.RestaurantDto;
 import pl.put.cms.server.entities.restaurant.dtos.RestaurantLocationDto;
@@ -40,11 +41,11 @@ public class RestaurantController {
         return restaurantInfoService.getRestaurantLocations(restaurantId);
     }
 
-//    @PostMapping("/reservation")
-//    public ResponseEntity<ReservationDto> makeReservation(@RequestBody ReservationDto reservationDto) throws MessagingException {
-//        emailService.sendEmail(reservationDto);
-//        return new ResponseEntity<>(HttpStatus.ACCEPTED);
-//    }
+    @PostMapping("/reservation")
+    public ResponseEntity<ReservationDto> makeReservation(@RequestBody ReservationDto reservationDto) throws MessagingException {
+        emailService.sendEmail(reservationDto);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    }
 
 
 }
