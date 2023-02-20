@@ -1,5 +1,6 @@
 package pl.put.cms.server.configuration;
 
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
@@ -12,6 +13,8 @@ import pl.put.cms.server.entities.restaurant.RestaurantLocation;
 import pl.put.cms.server.repositories.cms.*;
 import pl.put.cms.server.repositories.restaurant.*;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.Arrays;
 import java.util.List;
 
@@ -49,7 +52,7 @@ public class Initial {
     }
 
     @EventListener(ApplicationReadyEvent.class)
-    public void init() {
+    public void init() throws Exception {
 
         Administrator administrator = Administrator.builder().login("admin").password("admin".toCharArray()).build();
         administratorRepository.save(administrator);
@@ -121,11 +124,11 @@ public class Initial {
         );
     }
 
-    private void addPosts(CMS cms) {
+    private void addPosts(CMS cms) throws Exception {
         postRepository.saveAll(
             Arrays.asList(
-                    Post.builder().title("Location").text("Thanks for stopping by. We are the last authentic Italian restaurant in Milan, serving delicious Italian cuisine cooked by the best chefs. It only takes a few minutes to browse through our website and check out our menu. We hope you'll soon join us for a superb Italian culinary experience.").img("").cms(cms).build(),
-                    Post.builder().title("Location").text("Thanks for stopping by. We are the last authentic Italian restaurant in Milan, serving delicious Italian cuisine cooked by the best chefs. It only takes a few minutes to browse through our website and check out our menu. We hope you'll soon join us for a superb Italian culinary experience.").img("").cms(cms).build()
+                    Post.builder().title("Location").text("Thanks for stopping by. We are the last authentic Italian restaurant in Milan, serving delicious Italian cuisine cooked by the best chefs. It only takes a few minutes to browse through our website and check out our menu. We hope you'll soon join us for a superb Italian culinary experience.").img(encodeFileToBase64Binary(new File("src/main/resources/templates/cuisine.jpg"))).cms(cms).build(),
+                    Post.builder().title("Location").text("Thanks for stopping by. We are the last authentic Italian restaurant in Milan, serving delicious Italian cuisine cooked by the best chefs. It only takes a few minutes to browse through our website and check out our menu. We hope you'll soon join us for a superb Italian culinary experience.").img(encodeFileToBase64Binary(new File("src/main/resources/templates/location.jpg"))).cms(cms).build()
                     )
         );
     }
@@ -142,5 +145,11 @@ public class Initial {
         );
     }
 
+    private  String encodeFileToBase64Binary(File file) throws Exception{
+        FileInputStream fileInputStreamReader = new FileInputStream(file);
+        byte[] bytes = new byte[(int)file.length()];
+        fileInputStreamReader.read(bytes);
+        return new String(Base64.encodeBase64(bytes), "UTF-8");
+    }
 
 }
