@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pl.put.cms.server.entities.cms.dtos.CreatePostDto;
 import pl.put.cms.server.entities.cms.dtos.NavigationBarButtonDto;
 import pl.put.cms.server.entities.cms.dtos.NavigationBarDto;
 import pl.put.cms.server.entities.cms.dtos.PostDto;
@@ -40,7 +41,7 @@ public class CMSController {
     }
 
     @PostMapping("/post")
-    ResponseEntity<Integer> createPost(@RequestBody PostDto postDto) {
+    ResponseEntity<Integer> createPost(@RequestBody CreatePostDto postDto) {
         return new ResponseEntity<>(postService.createPost(postDto), HttpStatus.CREATED);
     }
 
