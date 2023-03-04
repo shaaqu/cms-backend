@@ -2,6 +2,8 @@ package pl.put.cms.server.controlles;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.put.cms.server.entities.cms.dtos.NavigationBarButtonDto;
 import pl.put.cms.server.entities.cms.dtos.NavigationBarDto;
@@ -37,4 +39,18 @@ public class CMSController {
         return postService.getAllPosts(cmsId);
     }
 
+    @PostMapping("/post")
+    ResponseEntity<Integer> createPost(@RequestBody PostDto postDto) {
+        return new ResponseEntity<>(postService.createPost(postDto), HttpStatus.CREATED);
+    }
+
+    @PutMapping("/post")
+    ResponseEntity<Integer> editPost(@RequestBody PostDto postDto) {
+        return new ResponseEntity<>(postService.editPost(postDto), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/post/{id}")
+    ResponseEntity<Integer> deletePost(@PathVariable int id) {
+        return new ResponseEntity<>(postService.deletePost(id), HttpStatus.OK);
+    }
 }
