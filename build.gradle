@@ -33,8 +33,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-mail'
     implementation 'com.sun.mail:javax.mail:1.6.2'
     implementation group: 'com.auth0', name: 'java-jwt', version: '4.3.0'
-    compileOnly "io.springfox:springfox-swagger2:2.9.2"
-    compileOnly "io.springfox:springfox-swagger-ui:2.9.2"
+
+
+
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
