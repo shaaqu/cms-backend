@@ -28,6 +28,12 @@ public class CMSController {
         this.postService = postService;
     }
 
+    @GetMapping("/check")
+    String check() {
+        log.info("Check");
+        return "Check";
+    }
+
     @GetMapping("/{cmsId}/navi-bar")
     NavigationBarDto getNaviBar(@PathVariable int cmsId) {
         log.info("getting navi bar");
