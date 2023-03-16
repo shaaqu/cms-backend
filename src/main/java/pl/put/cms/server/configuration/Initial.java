@@ -54,7 +54,7 @@ public class Initial {
     @EventListener(ApplicationReadyEvent.class)
     public void init() throws Exception {
 
-        Administrator administrator = Administrator.builder().login("admin").password("admin".toCharArray()).build();
+        Administrator administrator = Administrator.builder().login("admin").password("admin").build();
         administratorRepository.save(administrator);
 
         Restaurant restaurant = Restaurant.builder()

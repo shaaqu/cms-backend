@@ -24,7 +24,7 @@ public class Administrator implements UserDetails {
     private String login;
 
     @Column(name = "password", length = 72)
-    private char[] password;
+    private String password;
 
     @OneToOne(mappedBy = "navigationBar")
     private CMS cms;

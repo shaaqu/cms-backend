@@ -18,25 +18,22 @@ import javax.mail.internet.MimeMessage;
 @Service
 public class EmailServiceImpl implements EmailService {
 
-    @Autowired @Qualifier("emailsender")
-    private JavaMailSender mailSender;
-
     @Autowired
-    public EmailServiceImpl(JavaMailSender mailSender) {
-        this.mailSender = mailSender;
+    public EmailServiceImpl() {
+
     }
 
     public void sendEmail(ReservationDto reservationDto) throws MessagingException {
-        MimeMessage message = mailSender.createMimeMessage();
-        message.addRecipient(Message.RecipientType.TO,new InternetAddress("pawel.lukaszewicz@student.put.poznan.pl"));
-        message.setSubject("Reservation");
-        message.setText(reservationDto.getMassage() + "\n" +
-                        reservationDto.getName() + "\n" +
-                        reservationDto.getPhoneNumber() + "\n" +
-                        reservationDto.getMail() + "\n" +
-                        reservationDto.getNumberOfGuests());
-
-        mailSender.send(message);
+//        MimeMessage message = mailSender.createMimeMessage();
+//        message.addRecipient(Message.RecipientType.TO,new InternetAddress("pawel.lukaszewicz@student.put.poznan.pl"));
+//        message.setSubject("Reservation");
+//        message.setText(reservationDto.getMassage() + "\n" +
+//                        reservationDto.getName() + "\n" +
+//                        reservationDto.getPhoneNumber() + "\n" +
+//                        reservationDto.getMail() + "\n" +
+//                        reservationDto.getNumberOfGuests());
+//
+//        mailSender.send(message);
     }
 
 }
