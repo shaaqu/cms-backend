@@ -1,39 +1,29 @@
 package pl.put.cms.server.services.cms.impl;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMailMessage;
 import org.springframework.stereotype.Service;
+import pl.put.cms.server.entities.restaurant.Reservation;
 import pl.put.cms.server.entities.restaurant.dtos.ReservationDto;
+import pl.put.cms.server.repositories.restaurant.ReservationRepository;
 import pl.put.cms.server.services.cms.EmailService;
 
-import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 
 @Service
 public class EmailServiceImpl implements EmailService {
 
-    @Autowired
-    public EmailServiceImpl() {
+    private final ReservationRepository reservationRepository;
+    private final ModelMapper modelMapper;
 
+    @Autowired
+    public EmailServiceImpl(ReservationRepository reservationRepository) {
+        this.reservationRepository = reservationRepository;
+        this.modelMapper = new ModelMapper();
     }
 
-    public void sendEmail(ReservationDto reservationDto) throws MessagingException {
-//        MimeMessage message = mailSender.createMimeMessage();
-//        message.addRecipient(Message.RecipientType.TO,new InternetAddress("pawel.lukaszewicz@student.put.poznan.pl"));
-//        message.setSubject("Reservation");
-//        message.setText(reservationDto.getMassage() + "\n" +
-//                        reservationDto.getName() + "\n" +
-//                        reservationDto.getPhoneNumber() + "\n" +
-//                        reservationDto.getMail() + "\n" +
-//                        reservationDto.getNumberOfGuests());
-//
-//        mailSender.send(message);
+    public void sendEmail(ReservationDto reservationDto) {
+        reservationRepository.save(modelMapper.map(reservationDto, Reservation.class));
     }
 
 }
