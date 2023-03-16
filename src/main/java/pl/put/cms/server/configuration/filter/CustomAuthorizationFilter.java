@@ -32,10 +32,7 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
-
         if (checkIfAuthorizationNeeded(request)) {
-            filterChain.doFilter(request, response);
-        } else {
             String authorizationHeader = request.getHeader(AUTHORIZATION);
             if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
                 try {
@@ -56,19 +53,12 @@ public class CustomAuthorizationFilter extends OncePerRequestFilter {
                 filterChain.doFilter(request, response);
             }
         }
+        filterChain.doFilter(request, response);
+
     }
 
     private boolean checkIfAuthorizationNeeded(HttpServletRequest request) {
-        return request.getRequestURI().equals("/login")
-                || request.getRequestURI().equals("/login")
-                || request.getRequestURI().equals("/user/refreshToken")
-                || request.getRequestURI().equals("/facebook/user")
-                || request.getRequestURI().contains("/swagger-resources")
-                || request.getRequestURI().contains("/v3/api-docs")
-                || request.getRequestURI().contains(".html")
-                || request.getRequestURI().contains(".css")
-                || request.getRequestURI().contains(".js")
-                || request.getRequestURI().contains(".png");
+        return request.getRequestURI().equals("/cms/check");
     }
 
 }
