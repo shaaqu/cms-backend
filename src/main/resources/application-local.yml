@@ -17,4 +17,11 @@ spring:
     pathmatch:
       matching-strategy: ant_path_matcher
 
+  security:
+    jwt:
+      token:
+        secret:
+          key: eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTY3OTAwMTI4NSwiaWF0IjoxNjc5MDAxMjg1fQ.tEwOBuuKupKNRLC7RStmfoIAwp1RF3rcANtr5f7rBcg
+
+
 

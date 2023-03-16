@@ -4,6 +4,8 @@ import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import pl.put.cms.server.entities.cms.*;
 import pl.put.cms.server.entities.restaurant.Category;
@@ -34,6 +36,7 @@ public class Initial {
     private final MenuPositionPicturesRepository menuPositionPicturesRepository;
     private final RestaurantLocationRepository restaurantLocationRepository;
     private final RestaurantRepository restaurantRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
     public Initial(AdministratorRepository administratorRepository, CMSRepository cmsRepository, NavigationBarRepository navigationBarRepository, NavigationBarButtonRepository navigationBarButtonRepository, PostRepository postRepository, SliderImageRepository sliderImageRepository, CategoryRepository categoryRepository, ContactAddressRepository contactAddressRepository, MenuPositionsRepository menuPositionsRepository, MenuPositionPicturesRepository menuPositionPicturesRepository, RestaurantLocationRepository restaurantLocationRepository, RestaurantRepository restaurantRepository) {
@@ -49,12 +52,13 @@ public class Initial {
         this.menuPositionPicturesRepository = menuPositionPicturesRepository;
         this.restaurantLocationRepository = restaurantLocationRepository;
         this.restaurantRepository = restaurantRepository;
+        this.passwordEncoder = new BCryptPasswordEncoder(10);;
     }
 
     @EventListener(ApplicationReadyEvent.class)
     public void init() throws Exception {
 
-        Administrator administrator = Administrator.builder().login("admin").password("admin").build();
+        Administrator administrator = Administrator.builder().login("admin").password(passwordEncoder.encode("admin")).build();
         administratorRepository.save(administrator);
 
         Restaurant restaurant = Restaurant.builder()

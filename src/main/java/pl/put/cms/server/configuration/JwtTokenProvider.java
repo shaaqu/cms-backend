@@ -104,7 +104,7 @@ public class JwtTokenProvider {
     }
 
     private String getSecret() {
-        return environment.getProperty("spring.security.jwt.token.secretKey");
+        return environment.getProperty("spring.security.jwt.token.secret.key");
     }
 
     public UsernamePasswordAuthenticationToken authorizeToken(String authorizationHeader) {
