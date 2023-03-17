@@ -34,9 +34,6 @@ dependencies {
     implementation 'com.sun.mail:javax.mail:1.6.2'
     implementation group: 'com.auth0', name: 'java-jwt', version: '4.3.0'
 
-
-
-
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
@@ -53,21 +50,3 @@ tasks.named('asciidoctor') {
     inputs.dir snippetsDir
     dependsOn test
 }
-
-dependencies {
-    compile 'com.github.jsimone:webapp-runner:8.5.11.3'
-}
-
-task stage() {
-    dependsOn clean, war
-}
-war.mustRunAfter clean
-
-task copyToLib(type: Copy) {
-    into "$buildDir/server"
-    from(configurations.compile) {
-        include "webapp-runner*"
-    }
-}
-
-stage.dependsOn(copyToLib)
