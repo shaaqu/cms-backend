@@ -1,14 +1,25 @@
 spring:
 
+  datasource:
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+
   jpa:
     hibernate:
       ddl-auto: create-drop
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
+    database: postgresql
 
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
 
+  security:
+    jwt:
+      token:
+        secret:
+          key: ${SPRING_JWT_TOKEN_SECRET_KEY}
 
