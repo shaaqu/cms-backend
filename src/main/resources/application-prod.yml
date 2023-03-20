@@ -23,5 +23,4 @@ spring:
         secret:
           key: ${SPRING_JWT_TOKEN_SECRET_KEY}
 
-server:
-  port: ${PORT:5000}
+
